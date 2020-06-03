@@ -8,5 +8,9 @@ namespace BalticSportAPI.Models
 {
     public class BalticSportDBContext : DbContext
     {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Data Source=.\sqlexpress;Initial Catalog=master;Integrated Security=True");
+        }
     }
 }
