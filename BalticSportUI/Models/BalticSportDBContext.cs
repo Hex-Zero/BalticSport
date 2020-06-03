@@ -8,7 +8,7 @@ namespace BalticSportAPI.Models
 {
     public class BalticSportDbContext : DbContext
     {
-        public DbSet<> Type { get; set; }
+        public DbSet<Order> Orders { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Data Source=.\sqlexpress;Initial Catalog=BalticSport;Integrated Security=True");
