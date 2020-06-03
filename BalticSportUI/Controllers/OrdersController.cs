@@ -16,7 +16,10 @@ namespace BalticSportUI.Controllers
         [HttpGet]
         public IEnumerable<Order> Get()
         {
-            return NotFound(); 
+            using (var context = new BalticSportDbContext())
+            {
+                return context.Orders.ToList();
+            }
         }
     }
 }
