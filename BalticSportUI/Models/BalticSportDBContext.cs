@@ -6,11 +6,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BalticSportAPI.Models
 {
-    public class BalticSportDBContext : DbContext
+    public class BalticSportDbContext : DbContext
     {
+        public DbSet<> Type { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=.\sqlexpress;Initial Catalog=master;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=.\sqlexpress;Initial Catalog=BalticSport;Integrated Security=True");
         }
     }
 }
