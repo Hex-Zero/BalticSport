@@ -4,14 +4,16 @@ using BalticSportAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BalticSportAPI.Migrations
 {
     [DbContext(typeof(BalticSportDbContext))]
-    partial class BalticSportDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200603162937_nexf")]
+    partial class nexf
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -165,6 +167,8 @@ namespace BalticSportAPI.Migrations
 
                     b.HasKey("SupplierID");
 
+                    b.HasIndex("PhoneID");
+
                     b.ToTable("Suppliers");
                 });
 
@@ -173,6 +177,15 @@ namespace BalticSportAPI.Migrations
                     b.HasOne("BalticSportAPI.Models.Phone", "Phone")
                         .WithMany()
                         .HasForeignKey("PhoneID");
+                });
+
+            modelBuilder.Entity("BalticSportAPI.Models.Supplier", b =>
+                {
+                    b.HasOne("BalticSportAPI.Models.Phone", "Phone")
+                        .WithMany()
+                        .HasForeignKey("PhoneID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

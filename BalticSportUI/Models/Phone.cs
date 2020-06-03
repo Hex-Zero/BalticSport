@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 
 namespace BalticSportAPI.Models
 {
-    public class PhoneNumber
+    public class Phone
     {
         public int PhoneID { get; set; }
-        public List<int> PhoneNumbers { get; set; }
+        public int PhoneNumber1 { get; set; }
+        public int PhoneNumber2 { get; set; }
+        public int PhoneNumberOne { get; set; }
     }
 }
