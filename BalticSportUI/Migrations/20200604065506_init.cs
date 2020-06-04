@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BalticSportAPI.Migrations
 {
-    public partial class nexf : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -83,6 +83,21 @@ namespace BalticSportAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Suppliers",
+                columns: table => new
+                {
+                    SupplierID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SupplierName = table.Column<string>(nullable: true),
+                    PhoneID = table.Column<int>(nullable: false),
+                    CustomerAddress = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Suppliers", x => x.SupplierID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Customers",
                 columns: table => new
                 {
@@ -103,35 +118,9 @@ namespace BalticSportAPI.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Suppliers",
-                columns: table => new
-                {
-                    SupplierID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    SupplierName = table.Column<string>(nullable: true),
-                    PhoneID = table.Column<int>(nullable: false),
-                    CustomerAddress = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Suppliers", x => x.SupplierID);
-                    table.ForeignKey(
-                        name: "FK_Suppliers_PhoneNumbers_PhoneID",
-                        column: x => x.PhoneID,
-                        principalTable: "PhoneNumbers",
-                        principalColumn: "PhoneID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_Customers_PhoneID",
                 table: "Customers",
-                column: "PhoneID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Suppliers_PhoneID",
-                table: "Suppliers",
                 column: "PhoneID");
         }
 

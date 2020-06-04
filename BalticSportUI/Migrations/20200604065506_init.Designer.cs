@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BalticSportAPI.Migrations
 {
     [DbContext(typeof(BalticSportDbContext))]
-    [Migration("20200603163249_nef")]
-    partial class nef
+    [Migration("20200604065506_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

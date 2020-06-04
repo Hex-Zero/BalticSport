@@ -10,9 +10,9 @@ namespace BalticSportAPI.Models
     {
         public int OrderID { get; set; }
   
-        public int CustomerID { get; set; }
+        public Customer Customer { get; set; }
        
-        public int SellerID { get; set; }
+        public Seller Seller { get; set; }
         public DateTime OrderDate { get; set; }
     }
 }
