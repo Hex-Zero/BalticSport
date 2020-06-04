@@ -4,14 +4,16 @@ using BalticSportAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BalticSportAPI.Migrations
 {
     [DbContext(typeof(BalticSportDbContext))]
-    partial class BalticSportDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200604094013_test")]
+    partial class test
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,7 +23,7 @@ namespace BalticSportAPI.Migrations
 
             modelBuilder.Entity("BalticSportAPI.Models.Customer", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CustomerID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -36,94 +38,94 @@ namespace BalticSportAPI.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.HasKey("Id");
+                    b.Property<int?>("OrderID")
+                        .HasColumnType("int");
+
+                    b.HasKey("CustomerID");
+
+                    b.HasIndex("OrderID");
 
                     b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("BalticSportAPI.Models.Order", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("OrderID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CustomerIdId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("SellerIdId")
+                    b.Property<int?>("SellerID")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("OrderID");
 
-                    b.HasIndex("CustomerIdId");
-
-                    b.HasIndex("SellerIdId");
+                    b.HasIndex("SellerID");
 
                     b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("BalticSportAPI.Models.OrderLine", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("OrderLineID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("OrderIdId")
+                    b.Property<int?>("OrderID")
                         .HasColumnType("int");
 
                     b.Property<int>("OrderQuantity")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ProductIdId")
+                    b.Property<int?>("ProductID")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("OrderLineID");
 
-                    b.HasIndex("OrderIdId");
+                    b.HasIndex("OrderID");
 
-                    b.HasIndex("ProductIdId");
+                    b.HasIndex("ProductID");
 
                     b.ToTable("OrderLines");
                 });
 
             modelBuilder.Entity("BalticSportAPI.Models.Phone", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("PhoneID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CustomerId")
+                    b.Property<int?>("CustomerID")
                         .HasColumnType("int");
 
                     b.Property<int>("PhoneNumber")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SellerId")
+                    b.Property<int?>("SellerID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SupplierId")
+                    b.Property<int?>("SupplierID")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("PhoneID");
 
-                    b.HasIndex("CustomerId");
+                    b.HasIndex("CustomerID");
 
-                    b.HasIndex("SellerId");
+                    b.HasIndex("SellerID");
 
-                    b.HasIndex("SupplierId");
+                    b.HasIndex("SupplierID");
 
                     b.ToTable("PhoneNumbers");
                 });
 
             modelBuilder.Entity("BalticSportAPI.Models.Product", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ProductID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -139,19 +141,19 @@ namespace BalticSportAPI.Migrations
                     b.Property<int>("ProductQuantity")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SupplierIdId")
+                    b.Property<int?>("SupplierID")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ProductID");
 
-                    b.HasIndex("SupplierIdId");
+                    b.HasIndex("SupplierID");
 
                     b.ToTable("Products");
                 });
 
             modelBuilder.Entity("BalticSportAPI.Models.Seller", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("SellerID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -161,14 +163,14 @@ namespace BalticSportAPI.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.HasKey("Id");
+                    b.HasKey("SellerID");
 
                     b.ToTable("Sellers");
                 });
 
             modelBuilder.Entity("BalticSportAPI.Models.Supplier", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("SupplierID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -181,53 +183,56 @@ namespace BalticSportAPI.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.HasKey("Id");
+                    b.HasKey("SupplierID");
 
                     b.ToTable("Suppliers");
                 });
 
+            modelBuilder.Entity("BalticSportAPI.Models.Customer", b =>
+                {
+                    b.HasOne("BalticSportAPI.Models.Order", null)
+                        .WithMany("Customer")
+                        .HasForeignKey("OrderID");
+                });
+
             modelBuilder.Entity("BalticSportAPI.Models.Order", b =>
                 {
-                    b.HasOne("BalticSportAPI.Models.Customer", "CustomerId")
+                    b.HasOne("BalticSportAPI.Models.Seller", "Seller")
                         .WithMany()
-                        .HasForeignKey("CustomerIdId");
-
-                    b.HasOne("BalticSportAPI.Models.Seller", "SellerId")
-                        .WithMany()
-                        .HasForeignKey("SellerIdId");
+                        .HasForeignKey("SellerID");
                 });
 
             modelBuilder.Entity("BalticSportAPI.Models.OrderLine", b =>
                 {
-                    b.HasOne("BalticSportAPI.Models.Order", "OrderId")
+                    b.HasOne("BalticSportAPI.Models.Order", "Order")
                         .WithMany()
-                        .HasForeignKey("OrderIdId");
+                        .HasForeignKey("OrderID");
 
-                    b.HasOne("BalticSportAPI.Models.Product", "ProductId")
+                    b.HasOne("BalticSportAPI.Models.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductIdId");
+                        .HasForeignKey("ProductID");
                 });
 
             modelBuilder.Entity("BalticSportAPI.Models.Phone", b =>
                 {
                     b.HasOne("BalticSportAPI.Models.Customer", null)
                         .WithMany("Phone")
-                        .HasForeignKey("CustomerId");
+                        .HasForeignKey("CustomerID");
 
                     b.HasOne("BalticSportAPI.Models.Seller", null)
                         .WithMany("Phone")
-                        .HasForeignKey("SellerId");
+                        .HasForeignKey("SellerID");
 
                     b.HasOne("BalticSportAPI.Models.Supplier", null)
-                        .WithMany("PhoneId")
-                        .HasForeignKey("SupplierId");
+                        .WithMany("Phone")
+                        .HasForeignKey("SupplierID");
                 });
 
             modelBuilder.Entity("BalticSportAPI.Models.Product", b =>
                 {
-                    b.HasOne("BalticSportAPI.Models.Supplier", "SupplierId")
+                    b.HasOne("BalticSportAPI.Models.Supplier", "Supplier")
                         .WithMany()
-                        .HasForeignKey("SupplierIdId");
+                        .HasForeignKey("SupplierID");
                 });
 #pragma warning restore 612, 618
         }

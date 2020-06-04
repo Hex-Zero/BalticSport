@@ -4,14 +4,16 @@ using BalticSportAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BalticSportAPI.Migrations
 {
     [DbContext(typeof(BalticSportDbContext))]
-    partial class BalticSportDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200604102957_one1")]
+    partial class one1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

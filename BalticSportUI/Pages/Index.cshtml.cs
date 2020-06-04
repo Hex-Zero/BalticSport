@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BalticSportAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace BalticSportUI.Pages
@@ -23,7 +24,9 @@ namespace BalticSportUI.Pages
 
         public void OnGet()
         {
-            LoadSampleData();
+
+            var order = _db.Orders
+                .ToList();
         }
         private void LoadSampleData()
         {

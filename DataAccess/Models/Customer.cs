@@ -10,7 +10,7 @@ namespace BalticSportAPI.Models
 {
     public class Customer
     {
-        public int CustomerID { get; set; }
+        public int Id { get; set; }
         [Required]
         [MaxLength(50)]
         public string CustomerName { get; set; }

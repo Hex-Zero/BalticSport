@@ -7,7 +7,7 @@ namespace BalticSportAPI.Models
 {
     public class Phone
     {
-        public int PhoneID { get; set; }
+        public int Id { get; set; }
         public int PhoneNumber { get; set; }
     }
 }

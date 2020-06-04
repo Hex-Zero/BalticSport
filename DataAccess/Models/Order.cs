@@ -8,11 +8,9 @@ namespace BalticSportAPI.Models
 {
     public class Order
     {
-        public int OrderID { get; set; }
-  
-        public Customer Customer { get; set; }
-       
-        public Seller Seller { get; set; }
+        public int Id { get; set; }
+        public Customer CustomerId { get; set; }
+        public Seller SellerId { get; set; }
         public DateTime OrderDate { get; set; }
     }
 }

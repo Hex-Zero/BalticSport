@@ -9,11 +9,11 @@ namespace BalticSportAPI.Models
 {
     public class Supplier
     {
-        public int SupplierID { get; set; }
+        public int Id { get; set; }
         [Required]
         [MaxLength(50)]
         public string SupplierName { get; set; }
-        public List<Phone> Phone { get; set; }
+        public List<Phone> PhoneId { get; set; }
         public string CustomerAddress { get; set; }
     }
 }

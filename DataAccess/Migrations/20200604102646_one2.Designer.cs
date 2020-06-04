@@ -4,14 +4,16 @@ using BalticSportAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BalticSportAPI.Migrations
 {
     [DbContext(typeof(BalticSportDbContext))]
-    partial class BalticSportDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200604102646_one2")]
+    partial class one2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,20 +50,20 @@ namespace BalticSportAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CustomerIdId")
+                    b.Property<int?>("CustomerIDId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("SellerIdId")
+                    b.Property<int?>("SellerId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomerIdId");
+                    b.HasIndex("CustomerIDId");
 
-                    b.HasIndex("SellerIdId");
+                    b.HasIndex("SellerId");
 
                     b.ToTable("Orders");
                 });
@@ -73,20 +75,20 @@ namespace BalticSportAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("OrderIdId")
+                    b.Property<int?>("OrderId")
                         .HasColumnType("int");
 
                     b.Property<int>("OrderQuantity")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ProductIdId")
+                    b.Property<int?>("ProductId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OrderIdId");
+                    b.HasIndex("OrderId");
 
-                    b.HasIndex("ProductIdId");
+                    b.HasIndex("ProductId");
 
                     b.ToTable("OrderLines");
                 });
@@ -139,12 +141,12 @@ namespace BalticSportAPI.Migrations
                     b.Property<int>("ProductQuantity")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SupplierIdId")
+                    b.Property<int?>("SupplierId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SupplierIdId");
+                    b.HasIndex("SupplierId");
 
                     b.ToTable("Products");
                 });
@@ -188,24 +190,24 @@ namespace BalticSportAPI.Migrations
 
             modelBuilder.Entity("BalticSportAPI.Models.Order", b =>
                 {
-                    b.HasOne("BalticSportAPI.Models.Customer", "CustomerId")
+                    b.HasOne("BalticSportAPI.Models.Customer", "CustomerID")
                         .WithMany()
-                        .HasForeignKey("CustomerIdId");
+                        .HasForeignKey("CustomerIDId");
 
-                    b.HasOne("BalticSportAPI.Models.Seller", "SellerId")
+                    b.HasOne("BalticSportAPI.Models.Seller", "Seller")
                         .WithMany()
-                        .HasForeignKey("SellerIdId");
+                        .HasForeignKey("SellerId");
                 });
 
             modelBuilder.Entity("BalticSportAPI.Models.OrderLine", b =>
                 {
-                    b.HasOne("BalticSportAPI.Models.Order", "OrderId")
+                    b.HasOne("BalticSportAPI.Models.Order", "Order")
                         .WithMany()
-                        .HasForeignKey("OrderIdId");
+                        .HasForeignKey("OrderId");
 
-                    b.HasOne("BalticSportAPI.Models.Product", "ProductId")
+                    b.HasOne("BalticSportAPI.Models.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductIdId");
+                        .HasForeignKey("ProductId");
                 });
 
             modelBuilder.Entity("BalticSportAPI.Models.Phone", b =>
@@ -219,15 +221,15 @@ namespace BalticSportAPI.Migrations
                         .HasForeignKey("SellerId");
 
                     b.HasOne("BalticSportAPI.Models.Supplier", null)
-                        .WithMany("PhoneId")
+                        .WithMany("Phone")
                         .HasForeignKey("SupplierId");
                 });
 
             modelBuilder.Entity("BalticSportAPI.Models.Product", b =>
                 {
-                    b.HasOne("BalticSportAPI.Models.Supplier", "SupplierId")
+                    b.HasOne("BalticSportAPI.Models.Supplier", "Supplier")
                         .WithMany()
-                        .HasForeignKey("SupplierIdId");
+                        .HasForeignKey("SupplierId");
                 });
 #pragma warning restore 612, 618
         }

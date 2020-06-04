@@ -9,7 +9,7 @@ namespace BalticSportAPI.Models
 {
     public class Seller
     {
-        public int SellerID { get; set; }
+        public int Id { get; set; }
         [Required]
         [MaxLength(50)]
         public string SellerName { get; set; }

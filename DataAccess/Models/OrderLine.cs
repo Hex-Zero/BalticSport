@@ -8,11 +8,11 @@ namespace BalticSportAPI.Models
 {
     public class OrderLine
     {
-        public int OrderLineID { get; set; }
+        public int Id { get; set; }
       
-        public Order Order { get; set; }
+        public Order OrderId { get; set; }
       
-        public Product Product { get; set; }
+        public Product ProductId { get; set; }
         public int OrderQuantity { get; set; }
     }
 }
