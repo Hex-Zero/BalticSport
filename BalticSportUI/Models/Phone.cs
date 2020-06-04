@@ -8,6 +8,6 @@ namespace BalticSportAPI.Models
     public class Phone
     {
         public int PhoneID { get; set; }
-        public List<int> PhoneNumber { get; set; } = new List<int>();
+        public int PhoneNumber { get; set; }
     }
 }

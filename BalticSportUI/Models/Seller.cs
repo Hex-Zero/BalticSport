@@ -13,6 +13,6 @@ namespace BalticSportAPI.Models
         [Required]
         [MaxLength(50)]
         public string SellerName { get; set; }
-        public Phone Phone { get; set; }
+        public List<Phone> Phone { get; set; }
     }
 }
