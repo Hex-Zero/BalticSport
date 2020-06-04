@@ -29,6 +29,16 @@ namespace BalticSportUI.Pages
                 .Include(c => c.Customer)
                 .Include(s => s.Seller)
                 .ToList();
+
+            Product ball = new Product()
+            {
+                SupplierId = 1,
+                ProductQuantity = 2,
+                ProductPrice = 34,
+                ProductDescription = "New Ball"
+            };
+            _db.Products.Add(ball);
+            _db.SaveChanges();
         }
         private void LoadSampleData()
         {
