@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalticSportAPI", "BalticSportUI\BalticSportAPI.csproj", "{EF38D177-3382-4A99-8437-16CF98A3EC20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BalticSportUI", "BalticSportUI\BalticSportUI.csproj", "{96DB1B86-420B-4590-85B3-E97E71497606}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{213F5189-9AC8-4FB0-8F98-A15B5D22A165}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EF38D177-3382-4A99-8437-16CF98A3EC20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EF38D177-3382-4A99-8437-16CF98A3EC20}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EF38D177-3382-4A99-8437-16CF98A3EC20}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EF38D177-3382-4A99-8437-16CF98A3EC20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96DB1B86-420B-4590-85B3-E97E71497606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96DB1B86-420B-4590-85B3-E97E71497606}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96DB1B86-420B-4590-85B3-E97E71497606}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96DB1B86-420B-4590-85B3-E97E71497606}.Release|Any CPU.Build.0 = Release|Any CPU
+		{213F5189-9AC8-4FB0-8F98-A15B5D22A165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{213F5189-9AC8-4FB0-8F98-A15B5D22A165}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{213F5189-9AC8-4FB0-8F98-A15B5D22A165}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{213F5189-9AC8-4FB0-8F98-A15B5D22A165}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
