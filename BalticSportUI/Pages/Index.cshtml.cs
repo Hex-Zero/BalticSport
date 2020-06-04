@@ -26,6 +26,8 @@ namespace BalticSportUI.Pages
         {
 
             var order = _db.Orders
+                .Include(c => c.Customer)
+                .Include(s => s.Seller)
                 .ToList();
         }
         private void LoadSampleData()

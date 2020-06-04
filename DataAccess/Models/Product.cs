@@ -10,8 +10,8 @@ namespace BalticSportAPI.Models
     public class Product
     {
         public int Id { get; set; }
-     
-        public Supplier SupplierId { get; set; }
+        public int SupplierId { get; set; }
+        public Supplier Supplier { get; set; }
         public int ProductQuantity { get; set; }
         public long ProductPrice { get; set; }
         [Required]

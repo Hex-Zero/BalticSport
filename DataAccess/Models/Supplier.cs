@@ -13,7 +13,7 @@ namespace BalticSportAPI.Models
         [Required]
         [MaxLength(50)]
         public string SupplierName { get; set; }
-        public List<Phone> PhoneId { get; set; }
+        public List<Phone> Phone { get; set; }
         public string CustomerAddress { get; set; }
     }
 }
